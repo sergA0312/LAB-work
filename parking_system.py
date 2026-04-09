@@ -6,7 +6,7 @@ import math
 class ParkingSystem:
     def __init__(self):
         self.tickets = {}
-        # Тариф из текста ТЗ (стр. 1)
+        
         self.hourly_rate = 100
 
     def generate_ticket_id(self):
@@ -14,7 +14,7 @@ class ParkingSystem:
 
     def issue_ticket(self):
         car_number = input("Введите номер машины: ").strip()
-        # Простая проверка на пустой ввод или пробелы
+        
         if not car_number or " " in car_number:
             print("\nОшибка: Неверный формат номера машины. Пожалуйста, введите номер в правильном формате.\n")
             return
@@ -49,12 +49,10 @@ class ParkingSystem:
         duration = exit_time - ticket["entry_time"]
         total_seconds = duration.total_seconds()
 
-        # ЛОГИКА ОКРУГЛЕНИЯ:
-        # math.ceil округляет в большую сторону. 3600 секунд = 1 час.
-        # Если простоял 1 секунду, получится 0.0002 -> math.ceil сделает 1 час.
+        
         billable_hours = math.ceil(total_seconds / 3600)
 
-        # Если прошло меньше минуты, покажем секунды для наглядности
+        
         if total_seconds < 60:
             time_str = f"{int(total_seconds)} сек. (округлено до 1 часа)"
         elif total_seconds < 3600:
