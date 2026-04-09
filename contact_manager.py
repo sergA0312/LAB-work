@@ -4,7 +4,7 @@ class ContactManager:
         self.contacts = {}
 
     def _find_original_name(self, search_name):
-        """Вспомогательная функция для поиска оригинального ключа в словаре без учета регистра"""
+        
         for name in self.contacts:
             if name.lower() == search_name.lower():
                 return name
