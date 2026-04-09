@@ -1,6 +1,6 @@
 class ContactManager:
     def __init__(self):
-        # Храним контакты в словаре {Имя: Номер}
+        
         self.contacts = {}
 
     def _find_original_name(self, search_name):
@@ -18,7 +18,7 @@ class ContactManager:
             print("Ошибка: Имя не может быть пустым.")
             return
 
-        # Проверяем, существует ли уже такой контакт (регистронезависимо)
+        
         existing_name = self._find_original_name(name)
         if existing_name:
             print(f"Контакт '{existing_name}' уже существует с номером {self.contacts[existing_name]}.")
@@ -35,7 +35,7 @@ class ContactManager:
             print("Список контактов пуст.")
             return
 
-        # Сортируем для красоты
+        
         for name in sorted(self.contacts.keys()):
             print(f"{name}: {self.contacts[name]}")
         print("------------------------")
